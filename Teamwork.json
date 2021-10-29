@@ -1,0 +1,249 @@
+{
+    "schema": {
+        "options": {},
+        "crud_objects": {
+            "companies": {
+                "operations": {
+                    "companies_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/companies.json"
+                        },
+                        "processing_options": {
+                            "output_field": "companies"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "accounts": "number*",
+                    "addressOne": "string*",
+                    "addressTwo": "string*",
+                    "canSeePrivate": "boolean*",
+                    "cid": "string*",
+                    "city": "string*",
+                    "clients": "number*",
+                    "collaborators": "number*",
+                    "companyNameUrl": "string*",
+                    "contacts": "number*",
+                    "countryCode": "string*",
+                    "createdAt": "string*",
+                    "emailOne": "string*",
+                    "emailTwo": "string*",
+                    "emailThree": "string*",
+                    "fax": "string*",
+                    "id": "number*",
+                    "industry": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "isOwner": "boolean*",
+                    "logoUrl": "string*",
+                    "name": "string*",
+                    "phone": "string*",
+                    "privateNotes": "string*",
+                    "privateNotesText": "string*",
+                    "profileText": "string*",
+                    "state": "string*",
+                    "updatedAt": "string*",
+                    "website": "string*",
+                    "zip": "string*"
+                }
+            },
+            "projects": {
+                "operations": {
+                    "projects_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v3/projects.json"
+                        },
+                        "processing_options": {
+                            "output_field": "projects"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "activePages": {
+                        "billing": "_:boolean*",
+                        "board": "_:boolean*",
+                        "comments": "_:boolean*",
+                        "files": "_:boolean*",
+                        "forms": "_:boolean*",
+                        "gantt": "_:boolean*",
+                        "links": "_:boolean*",
+                        "list": "_:boolean*",
+                        "messages": "_:boolean*",
+                        "milestones": "_:boolean*",
+                        "notebooks": "_:boolean*",
+                        "riskRegister": "_:boolean*",
+                        "table": "_:boolean*",
+                        "tasks": "_:boolean*",
+                        "time": "_:boolean*"
+                    },
+                    "announcement": "string*",
+                    "category": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "company": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    
+                    "createdAt": "string*",
+                    "createdBy": "string*",
+                    "customfieldValues": [{
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    }],
+                    "defaultPrivacy": "string*",
+                    "description": "string*",
+                    "directFileUploadsEnabled": "boolean*",
+                    "endAt": "string*",
+                    "financialBudget": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "integrations": {
+                        "oneDriveBusiness": {
+                            "account": "_:string*",
+                            "enabled": "_:boolean*",
+                            "folder": "_:string*",
+                            "folderName": "_:string*"
+                        },
+                        "sharepoint": {
+                            "account": "_:string*",
+                            "enabled": "_:boolean*",
+                            "folder": "_:string*",
+                            "folderName": "_:string*"
+                        },
+                        "xero": {
+                            "baseCurrency": "_:string*",
+                            "connected": "_:boolean*",
+                            "countryCode": "_:string*",
+                            "enabled": "_:boolean*",
+                            "organisation": "_:string*"
+                        }
+                    },
+                    "isOnBoardingProject": "boolean*",
+                    "isProjectAdmin": "boolean*",
+                    "isSampleProject": "boolean*",
+                    "isStarred": "boolean*",
+                    "lastWorkedOn": "string*",
+                    "latestActivity": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "logo": "_:string*",
+                    "minMaxAvailableDates": {
+                        "deadlinesFound": "_:boolean*",
+                        "maxEndDate": "_:string*",
+                        "minStartDate": "_:string*",
+                        "suggestedEndDate": "_:string*",
+                        "suggestedStartDate": "_:string*"
+                    },
+                    "name": "string*",
+                    "notifyCommentIncludeCreator": "boolean*",
+                    "notifyEveryone": "boolean*",
+                    "notifyTaskAssignee": "boolean*",
+                    "overviewStartPage": "string*",
+                    "ownedBy": "number*",
+                    "portfolioCards": [{
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    }],
+                    "privacyEnabled": "boolean*",
+                    "projectOwner": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "replyByEmailEnabled": "boolean*",
+                    "showAnnouncement": "boolean*",
+                    "skipWeekends": "boolean*",
+                    "startAt": "string*",
+                    "startPage": "string*",
+                    "status": "string*",
+                    "subStatus": "string*",
+                    "tags": [{
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    }],
+                    "tasksStartPage": "string*",
+                    "timeBudget": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "type": "string*",
+                    "update": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "updatedAt": "string*",
+                    "updatedBy": "string*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "{tenant_id}",
+            "get": {
+                "maxPageCount": 500,
+                "query_parameters": {
+                },
+                "pagination": {
+                    "mode": "generic",
+                   "path":[],
+                    "page_size":998,
+                    "params":{
+                        "page":"{page_number}",
+                        "limit":999
+                    }
+                }
+            },
+            "authentication": "basic_auth",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/companies"
+            },
+            "accept": "application/json"
+        }
+        
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Tenent URL:",
+                "value": ""
+            },
+            {
+                "name": "updated_after",
+                "type": "textbox",
+                "label": "Updated After Date:",
+                "value": "20200101"
+            }
+        ]
+    }
+}
