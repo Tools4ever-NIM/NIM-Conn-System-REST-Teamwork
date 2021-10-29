@@ -201,6 +201,54 @@
                     "updatedAt": "string*",
                     "updatedBy": "string*"
                 }
+            },
+            "people": {
+                "operations": {
+                    "people_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v3/people.json"
+                        },
+                        "processing_options": {
+                            "output_field": "people"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "avatarUrl": "string*",
+                    "canAddProjects": "boolean*",
+                    "company": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    "companyId": "number*",
+                    "deleted": "boolean*",
+                    "email": "string*",
+                    "firstName": "number*",
+                    "id": "number*",
+                    "isAdmin": "boolean*",
+                    "isClientUser": "boolean*",
+                    "isServiceAccount": "boolean*",
+                    "lastName": "string*",
+                    "lengthOfDay": "number*",
+                    "title": "string*",
+                    "type": "string*",
+                    "userCost": "number*",
+                    "userRate": "number*",
+                    "workingHour": {
+                        "id": "_:number*",
+                        "meta": "string*",
+                        "type": "string*"
+                    },
+                    
+                    "workingHoursId": "number*"
+                }
             }
         }
     },
