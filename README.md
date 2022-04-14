@@ -1,7 +1,15 @@
 # NIM-Conn-System-REST-Teamwork
 
-In Development
+This is a native rest connector for Teamwork Projects
 
-Issues
-- Results with no single object or array objects not working without nesting in a property
-- Header Paging method not available yet
+## Table of Contents
+* [Getting Started](#getting-started)
+
+## Getting Started
+https://apidocs.teamwork.com/docs/teamwork
+
+* Pull Data
+* Request Project Status Update
+
+# NIM Docs
+The official NIM documentation can be found at: https://docs.nimsuite.com
