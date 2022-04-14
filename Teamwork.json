@@ -66,13 +66,16 @@
                             "output_field": "projects"
                         },
                         "query_parameters": {
-                            "updatedAfterDate": "{updated_after}"
+                            "updatedAfterDate": "{updated_after}",
+                            "include": "activities.latest,customFields,customFieldProjects,projectCategories,portfolioBoards,portfolioColumns,portfolioCards",
+                            "includeArchivedProjects": "true"
                         }
                     }
                 },
                 "parameters": {},
                 "key": "id",
                 "resources": {
+                    "id": "string*",
                     "activePages": {
                         "billing": "_:boolean*",
                         "board": "_:boolean*",
@@ -215,6 +218,28 @@
                         "query_parameters": {
                             "updatedAfterDate": "{updated_after}"
                         }
+                    },
+                    "people_create": {
+                        "method": "post",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/people.json"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "id",
+                            "etag",
+                            "adminCreated",
+                            "directMembersCount",
+                            "nonEditableAliases"
+                        ],
+                        "resource_mandatory": [
+                            "email-address",
+                            "first-name",
+                            "last-name",
+                            "company-id"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -249,6 +274,322 @@
                     
                     "workingHoursId": "number*"
                 }
+            },
+            "projectUpdates": {
+                "operations": {
+                    "projectUpdates_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v3/projects/updates.json"
+                        },
+                        "processing_options": {
+                            "output_field": "projectUpdates"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    },
+                    "projectUpdates_create": {
+                        "method": "put",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/projects/{id}/update/request.json"
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "id",
+                            "content"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                        "color": "string",
+                        "createdAt": "string",
+                        "createdBy": "number",
+                        "deleted": "boolean",
+                        "deletedAt": "string",
+                        "deletedBy": "number",
+                        "health": "number",
+                        "healthLabel": "string",
+                        "id": "number",
+                        "likeFromUserIDs": "string",
+                        "project": {
+                            "id": "_:number",
+                            "meta": "_:string",
+                            "type": "_:string"
+                        },
+                        "projectId": "number",
+                        "reactions": {
+                            "counts": {
+                                "dislike": "_:number",
+                                "frown": "_:number",
+                                "heart": "_:number",
+                                "joy": "_:number",
+                                "like": "_:number"
+                            },
+                            "mine": "string"
+                        },
+                        "text": "string",
+                        "updatedAt": "string",
+                        "content": "string"
+                }
+            },
+            "timeLogs": {
+                "operations": {
+                    "people_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v3/time.json"
+                        },
+                        "processing_options": {
+                            "output_field": "timelogs"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "billable": "boolean",
+                    "createdAt": "string",
+                    "dateCreated": "string",
+                    "dateDeleted": "string",
+                    "dateEdited": "string",
+                    "deleted": "boolean",
+                    "deletedAt": "string",
+                    "deletedBy": "number",
+                    "deletedByUserId": "number",
+                    "description": "string",
+                    "deskTicketId": "number",
+                    "editedByUserId": "number",
+                    "hasStartTime": "boolean",
+                    "id": "number",
+                    "invoiceNumber": "string",
+                    "loggedBy": "number",
+                    "loggedByUserId": "number",
+                    "minutes": "number",
+                    "project": {
+                        "id": "_:number",
+                        "type": "_:string"
+                    },
+                    "projectBillingInvoice": {
+                        "id": "_:number",
+                        "type": "_:string"
+                    },
+                    "projectBillingInvoiceId": "number",
+                    "projectId": "number",
+                    "tagIds": "string",
+                    "tags": [
+                        {
+                        "id": "_:number",
+                        "type": "_:string"
+                        }
+                    ],
+                    "task": {
+                        "id": "_:number",
+                        "type": "_:string"
+                    },
+                    "taskId": "number",
+                    "taskIdPreMove": "number",
+                    "taskPreMove": {
+                        "id": "_:number",
+                        "type": "_:string"
+                    },
+                    "timeLogged": "string",
+                    "updatedAt": "string",
+                    "updatedBy": "number",
+                    "user": {
+                        "id": "_:number",
+                        "type": "_:string"
+                    },
+                    "userId": "number"
+                }
+            },
+            "tags": {
+                "operations": {
+                    "people_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v3/tags.json"
+                        },
+                        "processing_options": {
+                            "output_field": "tags"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "color": "string",
+                    "count": "number",
+                    "id": "string",
+                    "name": "string",
+                    "project": {
+                        "id": "_:string",
+                        "type": "_:string"
+                    },
+                    "projectId": "number"
+                }
+            },
+            "portfolioBoards": {
+                "operations": {
+                    "people_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/portfolio/boards.json",
+                            "post_processing": "child_tables"
+                        },
+                        "processing_options": {
+                            "output_field": "boards"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}"
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "canEdit": "boolean",
+                    "name": "string*",
+                    "displayOrder": "string*",
+                    "description": "string*",
+                    "deletedDate": "string*",
+                    "id": "string*",
+                    "dateCreated": "string*",
+                    "color": "string*",
+                    "stats": {
+                        "projects": "_:string*"
+                    },
+                    "deleted": "boolean*"
+                }
+            },
+            "portfolioColumns":{
+                "operations":{
+                    "portfolioColumns_get":{
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "portfolioBoards",
+                            "iterator": "id",
+                            "path": "/portfolio/boards/{iterator}/columns.json",
+                            "base": {
+                                "portfolioBoard_id": "{iterator}"
+                            },
+                            "post_processing": "child_tables"
+                        },
+                        "processing_options": {
+                            "output_field": "columns"
+                        },
+                        "query_parameters": {
+                                
+                        },
+                        "maxSessionCount": 1
+                    }
+                },
+                "parameters":{},
+                "key":"id",
+                "resources":{
+                        "name": "string*",
+                        "displayOrder": "string*",
+                        "sortOrder": "string*",
+                        "deletedDate": "string*",
+                        "dateUpdated": "string*",
+                        "settings": {
+                          "company": "_:boolean*",
+                          "category": "_:boolean*",
+                          "starred": "_:boolean*",
+                          "tags": "_:boolean*",
+                          "name": "_:boolean*",
+                          "description": "_:boolean*",
+                          "dates": "_:boolean*"
+                        },
+                        "hasTriggers": "_:boolean*",
+                        "sort": "string*",
+                        "canEdit": "_:boolean*",
+                        "id": "string*",
+                        "dateCreated": "string*",
+                        "color": "string*",
+                        "deleted": "_:boolean*"
+                      
+                }
+            },
+            "portfolioColumnCards":{
+                "operations":{
+                    "portfolioColumnCards_get":{
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "portfolioColumns",
+                            "iterator": "id",
+                            "path": "/portfolio/columns/{iterator}/cards.json",
+                            "base": {
+                                "portfolioColumn_id": "{iterator}"
+                            },
+                            "post_processing": "child_tables"
+                        },
+                        "processing_options": {
+                            "output_field": "cards"
+                        },
+                        "query_parameters": {
+                                
+                        },
+                        "maxSessionCount": 1
+                    }
+                },
+                "parameters":{},
+                "key":"id",
+                "resources":{
+                    "company": {
+                        "name": "_:string*",
+                        "id": "_:string*"
+                      },
+                      "starred": "boolean",
+                      "name": "string*",
+                      "columnId": "string*",
+                      "boardId": "string*",
+                      "displayOrder": "string*",
+                      "description": "string*",
+                      "archived": "boolean",
+                      "deletedDate": "string*",
+                      "dateUpdated": "string*",
+                      "projectId": "string*",
+                      "status": "string*",
+                      "owner": {
+                        "avatarUrl": "_:string*",
+                        "firstName": "_:string*",
+                        "fullName": "_:string*",
+                        "id": "_:string*",
+                        "lastName": "_:string*"
+                      },
+                      "category": {
+                        "name": "_:string*",
+                        "id": "_:string*",
+                        "color": "_:string*"
+                      },
+                      "canEdit": "boolean",
+                      "tags": [
+                        {
+                          "name": "_:string*",
+                          "id": "_:string*",
+                          "projectId": "_:string*",
+                          "color": "_:string*"
+                        }
+                      ],
+                      "startDate": "string*",
+                      "id": "string*",
+                      "dateCreated": "string*",
+                      "deleted": "boolean",
+                      "endDate": "string*"
+                }
             }
         }
     },
@@ -262,10 +603,9 @@
                 "pagination": {
                     "mode": "generic",
                    "path":[],
-                    "page_size":998,
                     "params":{
                         "page":"{page_number}",
-                        "limit":999
+                        "pagesize":"1000"
                     }
                 }
             },
