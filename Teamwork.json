@@ -2,9 +2,35 @@
     "schema": {
         "options": {},
         "crud_objects": {
+            "categories": {
+                "operations": {
+                    "categoriesList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projectCategories.json"
+                        },
+                        "processing_options": {
+                            "output_field": "categories"
+                        },
+                        "query_parameters": {
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "parent-id": "string*",
+                    "name": "string*",
+                    "count": "string*",
+                    "elements-count": "string*",
+                    "id": "string*",
+                    "color": "string*",
+                    "type": "string*"
+                }
+            },
             "companies": {
                 "operations": {
-                    "companies_get": {
+                    "companiesList": {
                         "method": "get",
                         "call": {
                             "path": "/companies.json"
@@ -15,6 +41,77 @@
                         "query_parameters": {
                             "updatedAfterDate": "{updated_after}"
                         }
+                    },
+                    "companiesCreate": {
+                        "method": "post",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/companies.json"
+                        },
+                        "body":{
+                            "company":{                              
+                                "name" : "{name}",
+                                "address_one": "{addressOne}",
+                                "address_two": "{addressTwo}",
+                                "zip": "{zip}",
+                                "city": "{city}",
+                                "state": "{state}",
+                                "cid": "{cid}",
+                                "privateNotes": "{privateNotes}"
+
+                            }
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "accounts",
+                            "collaborators",
+                            "clients",
+                            "contacts",
+                            "createdAt",
+                            "id",
+                            "isOwner",
+                            "privateNotesText",
+                            "updatedAt"
+                        ],
+                        "resource_mandatory": [
+                            "name"
+                        ]
+                    },
+                    "companiesUpdate": {
+                        "method": "put",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/companies/{id}.json"
+                        },
+                        "body":{
+                            "company":{                              
+                                "name" : "{name}",
+                                "address_one": "{addressOne}",
+                                "address_two": "{addressTwo}",
+                                "zip": "{zip}",
+                                "city": "{city}",
+                                "state": "{state}",
+                                "cid": "{cid}",
+                                "privateNotes": "{privateNotes}"
+
+                            }
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                            "accounts",
+                            "collaborators",
+                            "clients",
+                            "contacts",
+                            "createdAt",
+                            "isOwner",
+                            "privateNotesText",
+                            "updatedAt"
+                        ],
+                        "resource_mandatory": [
+                            "id"
+                        ]
                     }
                 },
                 "parameters": {},
@@ -57,7 +154,7 @@
             },
             "projects": {
                 "operations": {
-                    "projects_get": {
+                    "projectsList": {
                         "method": "get",
                         "call": {
                             "path": "/projects/api/v3/projects.json"
@@ -68,7 +165,8 @@
                         "query_parameters": {
                             "updatedAfterDate": "{updated_after}",
                             "include": "activities.latest,customFields,customFieldProjects,projectCategories,portfolioBoards,portfolioColumns,portfolioCards",
-                            "includeArchivedProjects": "true"
+                            "includeArchivedProjects": "true",
+                            "includeCustomFields": "true"
                         }
                     }
                 },
@@ -205,9 +303,65 @@
                     "updatedBy": "string*"
                 }
             },
+            "projects_customFields": {
+                "operations": {
+                    "projectsCustomFieldsList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/projects/api/v2/projects.json"
+                        },
+                        "processing_options": {
+                            "output_field": "projects"
+                        },
+                        "query_parameters": {
+                            "updatedAfterDate": "{updated_after}",
+                            "includeArchivedProjects": "true",
+                            "includeCustomFields": "true"
+                        }
+                    },
+                    "projectsCustomFieldsUpdate": {
+                        "method": "put",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/projects/{id}.json"
+                        },
+                        "body":{
+                            "project":{                              
+                                "customFields": {
+                                    "customFieldId": "{FieldId}",
+                                    "value": "{FieldValue}"
+                                }
+                                
+
+                            }
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_prohibited": [
+                        ],
+                        "resource_mandatory": [
+                            "id",
+                            "FieldId",
+                            "FieldValue"
+                        ]
+                    }
+                },
+                "parameters": {},
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "customFields": [{
+                        "id": "_:number*",
+                        "customFieldId": "string*",
+                        "value": "string*"
+                    }],
+                    "FieldId": "string",
+                    "FieldValue": "string"
+                }
+            },
             "people": {
                 "operations": {
-                    "people_get": {
+                    "peopleList": {
                         "method": "get",
                         "call": {
                             "path": "/projects/api/v3/people.json"
@@ -277,7 +431,7 @@
             },
             "projectUpdates": {
                 "operations": {
-                    "projectUpdates_get": {
+                    "projectUpdatesList": {
                         "method": "get",
                         "call": {
                             "path": "/projects/api/v3/projects/updates.json"
@@ -339,7 +493,7 @@
             },
             "timeLogs": {
                 "operations": {
-                    "people_get": {
+                    "timeLogsList": {
                         "method": "get",
                         "call": {
                             "path": "/projects/api/v3/time.json"
@@ -412,7 +566,7 @@
             },
             "tags": {
                 "operations": {
-                    "people_get": {
+                    "tagsList": {
                         "method": "get",
                         "call": {
                             "path": "/projects/api/v3/tags.json"
@@ -441,7 +595,7 @@
             },
             "portfolioBoards": {
                 "operations": {
-                    "people_get": {
+                    "portfolioBoardsList": {
                         "method": "get",
                         "call": {
                             "path": "/portfolio/boards.json",
@@ -474,7 +628,7 @@
             },
             "portfolioColumns":{
                 "operations":{
-                    "portfolioColumns_get":{
+                    "portfolioColumnsList":{
                         "method": "get",
                         "call": {
                             "mode": "iteration",
@@ -524,7 +678,7 @@
             },
             "portfolioColumnCards":{
                 "operations":{
-                    "portfolioColumnCards_get":{
+                    "portfolioColumnCardsList":{
                         "method": "get",
                         "call": {
                             "mode": "iteration",
@@ -605,7 +759,7 @@
                    "path":[],
                     "params":{
                         "page":"{page_number}",
-                        "pagesize":"1000"
+                        "pagesize":"500"
                     }
                 }
             },
