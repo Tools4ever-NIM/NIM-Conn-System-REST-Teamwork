@@ -1,30 +1,28 @@
-# NIM-Conn-System-REST-Teamwork
+# Teamwork
+<img src="https://github.com/Tools4ever-NIM/NIM-System-REST-Teamwork/assets/24281600/4e8756c0-5327-4416-91de-c803f8207f71" width="256px" />
 
-This is a native rest connector for Teamwork Projects
 
-## Table of Contents
-* [Getting Started](#getting-started)
 
-## Getting Started
-https://apidocs.teamwork.com/docs/teamwork
+## Data Tables
+- Categories
+- Companies
+- People
+- Projects
+- Projects Custom Fields
+- Project Updates
+- Time Logs
+- Tags
+- Portfolio Boards
+- Portfolio Columns
+- Portfolio Column Cards
 
-* Pull Data
-* Request Project Status Update
-
-## Available Tables
-* companies
-* projects
-* projects_customfieldValues
-* projects_tags
-* people
-* projectUpdates
-* timeLogs
-* timeLogs_tags
-* tags
-* portfolioBoards
-* portfolioColumns
-* portfolioColumnCards
-* portfolioColumnCards_tags
+## Actions
+- Companies
+    - Create/Update
+- People
+    - Create
+- Project Updates
+    - Request Update
 
 # NIM Docs
 The official NIM documentation can be found at: https://docs.nimsuite.com
